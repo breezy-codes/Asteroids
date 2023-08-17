@@ -124,94 +124,77 @@ public abstract class Level
 
     }
 
+
+
     protected void SpawnRockWall(rockTypes rockType, string Location, int speed = 4)
     {
-        int X, Y, xChange, yChange, changeEnd, change, targetxy;
-        bool moveX = false; //If you are not moving X then we are moving Y
-        Enemy RockRef;
+        int X = 0, Y = 0;
+        int change = 0, targetxy = 0;
+        bool moveX = false;
+        int spacing = 30;
+        int rocksSpawned = 0;
+
+        Enemy? preCalcEnemy = createEnemy(rockType, speed, 0, 0, 0, 0);
+        int rockWidth = Convert.ToInt32(preCalcEnemy.Width);
+        int rockHeight = Convert.ToInt32(preCalcEnemy.Height);
+        preCalcEnemy = null;
+
         switch (Location)
         {
             case "Top":
-                X = 0;
                 Y = 0;
                 moveX = true;
-                RockRef = createEnemy(rockType, speed, X, Y, X, _wHeight);
-                Enemies.Add(RockRef);
-                xChange = Convert.ToInt32(RockRef.Width) + 10;
-                yChange = 0;
-                change = xChange;
-                changeEnd = _wWidth;
+                change = rockWidth + spacing;
                 targetxy = _wHeight;
                 break;
 
             case "Bottom":
-                X = 0;
                 Y = _wHeight;
-                moveX = false;
-                RockRef = createEnemy(rockType, speed, X, _wHeight, X, 0);
-                Enemies.Add(RockRef);
-                xChange = Convert.ToInt32(RockRef.Width) + 10;
-                yChange = 0;
-                change = xChange;
-                changeEnd = _wWidth;
+                moveX = true;
+                change = rockWidth + spacing;
                 targetxy = 0;
-
                 break;
 
             case "Left":
                 X = 0;
-                Y = 0;
-                moveX = false;
-                RockRef = createEnemy(rockType, speed, X, Y, _wWidth, Y);
-                Enemies.Add(RockRef);
-                xChange = 0;
-                yChange = Convert.ToInt32(RockRef.Height) + 10;
-                change = yChange;
-                changeEnd = _wHeight;
+                change = rockHeight + spacing;
                 targetxy = _wWidth;
                 break;
 
             case "Right":
                 X = _wWidth;
-                Y = 0;
-                moveX = false;
-                RockRef = createEnemy(rockType, speed, X, Y, 0, Y);
-                Enemies.Add(RockRef);
-                xChange = 0;
-                yChange = Convert.ToInt32(RockRef.Height) + 10;
-                change = yChange;
-                changeEnd = _wHeight;
-                targetxy = 0;
-                break;
-            default:
-                Console.WriteLine("Direction value must be Top, Bottom, Right or Left");
-                X = 0;
-                Y = 0;
-                xChange = 0;
-                yChange = 0;
-                change = 10;
-                changeEnd = 0;
+                change = rockHeight + spacing;
                 targetxy = 0;
                 break;
 
+            default:
+                Console.WriteLine("Direction value must be Top, Bottom, Right, or Left");
+                return;
         }
 
-        while (change < changeEnd)
+        if (moveX)
         {
-            X += xChange;
-            Y += yChange;
-            if (moveX)
+            while (X < _wWidth)
             {
                 Enemies.Add(createEnemy(rockType, speed, X, Y, X, targetxy));
-                change += xChange;
-            }
-            else
-            {
-                Enemies.Add(createEnemy(rockType, speed, X, Y, targetxy, Y));
-                change += yChange;
+                rocksSpawned += 1;
+                X += change;
             }
         }
+        else
+        {
+            while (Y < _wHeight)
+            {
+                Enemies.Add(createEnemy(rockType, speed, X, Y, targetxy, Y));
+                rocksSpawned += 1;
+                Y += change;
+            }
+        }
+
+        Console.WriteLine($"{rocksSpawned} rocks spawned.");
     }
+
+
 
     public virtual void Update()
     {
