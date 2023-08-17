@@ -134,9 +134,10 @@ public abstract class Level
         int spacing = 30;
         int rocksSpawned = 0;
 
-        Enemy? preCalcEnemy = createEnemy(rockType, speed, 0, 0, 0, 0);
+        Enemy? preCalcEnemy = createEnemy(rockType, speed, 0, -int.MaxValue, -int.MaxValue, -int.MaxValue);
         int rockWidth = Convert.ToInt32(preCalcEnemy.Width);
         int rockHeight = Convert.ToInt32(preCalcEnemy.Height);
+        preCalcEnemy.freesprite();
         preCalcEnemy = null;
 
         switch (Location)
