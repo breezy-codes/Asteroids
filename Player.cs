@@ -122,7 +122,7 @@ public class Player
         double RotateSpeed = 5;
         if (SplashKit.KeyDown(Controls.Keylookup("P1_left"))) Rotation(-RotateSpeed);
         if (SplashKit.KeyDown(Controls.Keylookup("P1_right"))) Rotation(RotateSpeed);
-        if (SplashKit.KeyDown(Controls.Keylookup("P1_up"))) Move(MoveSpeed);
+        if (SplashKit.KeyDown(Controls.Keylookup("P1_up")) || SplashKit.KeyDown(Controls.Keylookup("P1_button2"))) Move(MoveSpeed);
         if (SplashKit.KeyTyped(Controls.Keylookup("P1_button1"))) { Shoot(); }
     }
 
@@ -132,7 +132,7 @@ public class Player
         double RotateSpeed = 5;
         if (SplashKit.KeyDown(Controls.Keylookup("P2_left"))) Rotation(-RotateSpeed);
         if (SplashKit.KeyDown(Controls.Keylookup("P2_right"))) Rotation(RotateSpeed);
-        if (SplashKit.KeyDown(Controls.Keylookup("P2_up"))) Move(MoveSpeed);
+        if (SplashKit.KeyDown(Controls.Keylookup("P2_up")) || SplashKit.KeyDown(Controls.Keylookup("P2_button2"))) Move(MoveSpeed);
         if (SplashKit.KeyTyped(Controls.Keylookup("P2_button1"))) { Shoot(); }
 
     }
@@ -198,7 +198,7 @@ public class Player
         if (!IsInvulnerable && !IsDead)
         {
             bool hit = false;
-            
+
             foreach (Circle e in enemy.HitCircle())
             {
                 if (SplashKit.BitmapCircleCollision(_Ship, X, Y, e)) hit = true;

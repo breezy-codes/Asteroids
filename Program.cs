@@ -70,6 +70,7 @@ namespace AsteroidsGame
                 const int screen_height = 900;
                 const bool fullscreen = false;
                 const bool no_boarder = false;
+                const bool nomouse = true;
                 const double gameScaleDefault = 1;
                 const string game_bundles = "gamebundle_full_size.txt";
 
@@ -89,6 +90,7 @@ namespace AsteroidsGame
                     temp_config_json.AddBool("no_boarder", no_boarder);
                     temp_config_json.AddNumber("gameScale", gameScaleDefault);
                     temp_config_json.AddString("game_bundles", game_bundles);
+                    temp_config_json.AddBool("nomouse", nomouse);
                     config_json = temp_config_json;
 
                     SplashKit.JsonToFile(config_json, "Game_Config.json");
@@ -137,6 +139,18 @@ namespace AsteroidsGame
                 {
                     gameScale = gameScaleDefault;
                 }
+                if (config_json.HasKey("nomouse"))
+                {
+                    if (config_json.ReadBool("nomouse"))
+                    {
+                        SplashKit.HideMouse();
+                    }
+                }
+                else
+                {
+                    SplashKit.HideMouse();
+                }
+
 
             }
         }
