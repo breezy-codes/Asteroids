@@ -14,8 +14,6 @@ public class Game
     private int _GameOverCount;
     private String[] _SpritePacks = { "Shots", "Ships", "Enemies" };
 
-
-
     //private Players Player; temp for testing
 
 
@@ -47,6 +45,8 @@ public class Game
         //_gameLevel = new Level2(_GameWindow, this);
         //_gameLevel = new Jsonlvl(_GameWindow, this, "Level_Test.json");
         //_gameLevel = new EndGame(_GameWindow, this);
+
+
 
     }
 

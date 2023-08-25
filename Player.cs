@@ -22,7 +22,7 @@ public class Player
     public bool IsInvulnerable { get; private set; }
 
     public string Name { get { return _Player; } }
-
+    public SoundEffect shootSound;
     public Player(Window gameWindow, string Player, string PlayerShip, int PlayersNo)
     {
         _gameWindow = gameWindow;
@@ -30,7 +30,7 @@ public class Player
         _Player = Player;
 
         Respawn(PlayersNo);
-
+        shootSound = new SoundEffect("laser", "blaster-2-81267.ogg");
     }
 
     public void Respawn(int PlayersNo)
@@ -148,6 +148,7 @@ public class Player
 
     private void Shoot()
     {
+        shootSound.Play(0.5f);
         Shooting ShotType = new PlayerShot(_Ship.Center, _Angle, this);
         _shots.Add(ShotType);
     }
