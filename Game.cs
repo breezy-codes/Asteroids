@@ -14,7 +14,7 @@ public class Game
     private int _GameOverCount;
     private String[] _SpritePacks = { "Shots", "Ships", "Enemies" };
 
-
+    private Music _ambient;
 
     //private Players Player; temp for testing
 
@@ -47,6 +47,11 @@ public class Game
         //_gameLevel = new Level2(_GameWindow, this);
         //_gameLevel = new Jsonlvl(_GameWindow, this, "Level_Test.json");
         //_gameLevel = new EndGame(_GameWindow, this);
+
+
+        _ambient = new Music("drone", "spaceship-ambience-with-effects-21420.mp3");
+        _ambient.Play();
+
 
     }
 
@@ -141,6 +146,15 @@ public class Game
     public void Updates()
     {
         bool _GameOver = true;
+        bool isMusicPlaying = SplashKit.MusicPlaying();
+        if (!isMusicPlaying)
+        {
+            Console.WriteLine($"Backing track is not playing.");
+            _ambient.Play();
+        }
+
+
+
         for (int i = 0; i < _Players.Count(); i++)
         {
             if (!_Players[i].PlayerScore.IsDead)

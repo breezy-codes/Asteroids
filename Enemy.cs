@@ -17,6 +17,8 @@ public abstract class Enemy
     public bool SmallRocksSpawned { get; set; }
     public bool CanShoot { get; protected set; } //{ get { return CanShoot; } protected set { CanShoot = false; } }
 
+    public SoundEffect deathSound;
+
 
     protected double _Angle;
     public Vector2D _Velocity { get; protected set; }
@@ -42,6 +44,7 @@ public abstract class Enemy
         SpawnSmallRocks = false;
         SmallRocksSpawned = false;
         SplashKit.SelectSpritePack("Enemies");
+        deathSound = new SoundEffect("death", "punch-a-rock-161647.ogg");
 
     }
 
@@ -94,6 +97,7 @@ public abstract class Enemy
         _IsDying = true;
 
         wasHitBy.freesprite();
+        deathSound.Play(0.5f);
         return new Tuple<string, int>("Score", 10);
     }
 
