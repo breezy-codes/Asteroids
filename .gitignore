@@ -221,6 +221,11 @@ project.lock.json
 # UWP Projects
 AppPackages/
 
+#####  
+# Ubuntu Detritus
+#####  
+**/:Zone.Identifiers
+
 #####
 # End of core ignore list, below put you custom 'per project' settings (patterns or path)
 #####
