@@ -47,4 +47,4 @@ repository=https://github.com/DaGoblin/arcade-games
 #executable=game.exe
 
 # [Optional] Specific compile command - if you have a specific compile command (eg. 'make', 'skm g++ *.cpp') - Uncomment  if required
-compile-command=skm dotnet run
+#compile-command=
