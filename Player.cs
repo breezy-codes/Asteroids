@@ -2,6 +2,7 @@ using System;
 using SplashKitSDK;
 using System.Collections.Generic;
 using static AsteroidsGame.Program;
+using System.IO;
 
 
 public class Player
@@ -23,14 +24,33 @@ public class Player
 
     public string Name { get { return _Player; } }
     public SoundEffect shootSound;
+    public SoundEffect hitSound;
+    public SoundEffect[] collisionSounds;
+
     public Player(Window gameWindow, string Player, string PlayerShip, int PlayersNo)
     {
         _gameWindow = gameWindow;
         _Ship = SplashKit.LoadBitmap(Player, PlayerShip);
         _Player = Player;
 
+        collisionSounds = new SoundEffect[]
+        {
+            new SoundEffect("hit1", "asteroid-hitting-something-152511.ogg"),
+            new SoundEffect("hit2", "mixkit-arcade-game-explosion-2759.ogg"),
+            new SoundEffect("hit3", "Rock-Explosion.ogg")
+        };
+
         Respawn(PlayersNo);
         shootSound = new SoundEffect("laser", "blaster-2-81267.ogg");
+        hitSound = new SoundEffect("hit", "asteroid-hitting-something-152511.ogg");
+        
+    }
+
+    public void PlayRandomCollisionSound()
+    {
+        int randomIndex = new Random().Next(0, collisionSounds.Length);
+
+        collisionSounds[randomIndex].Play(0.5f);
     }
 
     public void Respawn(int PlayersNo)
@@ -184,10 +204,8 @@ public class Player
             _InvulnerableTime.Stop();
             _InvulnerableTime.Reset();
         }
-
-
-
     }
+
 
     public Bitmap HitBMP()
     {
@@ -202,7 +220,11 @@ public class Player
 
             foreach (Circle e in enemy.HitCircle())
             {
-                if (SplashKit.BitmapCircleCollision(_Ship, X, Y, e)) hit = true;
+                if (SplashKit.BitmapCircleCollision(_Ship, X, Y, e)) 
+                { 
+                    hit = true;
+                    PlayRandomCollisionSound();
+                }
             }
             if (enemy.HitSprite() != null)
             {
@@ -210,7 +232,7 @@ public class Player
             }
             if (hit) return enemy.HitBy(this);
         }
-
+        
 
         for (int i = 0; i < _shots.Count; i++)
         {
