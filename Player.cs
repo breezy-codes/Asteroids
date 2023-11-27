@@ -24,7 +24,6 @@ public class Player
 
     public string Name { get { return _Player; } }
     public SoundEffect shootSound;
-    public SoundEffect hitSound;
     public SoundEffect[] collisionSounds;
 
     public Player(Window gameWindow, string Player, string PlayerShip, int PlayersNo)
@@ -35,14 +34,13 @@ public class Player
 
         collisionSounds = new SoundEffect[]
         {
-            new SoundEffect("hit1", "asteroid-hitting-something-152511.ogg"),
-            new SoundEffect("hit2", "mixkit-arcade-game-explosion-2759.ogg"),
-            new SoundEffect("hit3", "Rock-Explosion.ogg")
+            new SoundEffect("hit1", "ship-explode-01.ogg"),
+            new SoundEffect("hit2", "ship-explode-02.ogg"),
+            new SoundEffect("hit3", "ship-explode-03.ogg")
         };
 
         Respawn(PlayersNo);
         shootSound = new SoundEffect("laser", "blaster-2-81267.ogg");
-        hitSound = new SoundEffect("hit", "asteroid-hitting-something-152511.ogg");
         
     }
 
