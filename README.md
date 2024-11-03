@@ -1,69 +1,97 @@
-# Asteroids1.0
+<p align="left">
+    <img width="150px" src="https://github.com/thoth-tech/.github/blob/main/images/splashkit.png"/>
+</p>
 
-## Game intro
+# Asteroids 1.0
 
-Asteroids is a top-down single player or co-op shooter that has you, the player, flying around and
-surviving an onslaught of rocks, and if you survive long enough, even bosses! Aim for a high score,
-don't lose your hearts before your friend, and maneuver around dangers and rack up that score!
+**Asteroids** is a top-down single player or co-op shooter that has you, the player, flying around and surviving an onslaught of rocks, and if you survive long enough, even bosses! Aim for a high score, don't lose your hearts before your friend, and manoeuvre around dangers and rack up that score!
 
-## Running the game
+## Game Overview
 
-Assuming you are CD'd into the correct directory, the game can be run with a simple `skm dotnet run`
-command via the MSYS2 terminal. If you aren't CD'd into the directory, or don't know what that
-means, open MSYS2, find the folder path for Asteroids, and copy it into a
+In **Asteroids**, you control a spaceship, dodging and shooting down waves of asteroids that fly across the screen. This game can be played solo or with a friend in co-op mode. The objective is simple: rack up points by destroying asteroids and bosses while avoiding collisions. Survive as long as possible and aim for the highest score!
 
-```
-cd '{path}'
-```
+## Running the Game
 
-command, where {path} is your copied explorer path, apostrophes included to account for file path
-spaces.
+To launch the game, follow these steps:
+
+1. **Navigate to the Game Directory**:
+   - Open the MSYS2 terminal.
+   - Change to the game directory by entering:
+  
+     ```bash
+     cd '{path-to-asteroids-directory}'
+     ```
+
+     Replace `{path-to-asteroids-directory}` with the actual path where the **Asteroids** folder is located.
+
+2. **Run the Game**:
+   - Start the game by typing:
+
+     ```bash
+     skm dotnet run
+     ```
+
+   - The game will launch directly from the terminal.
 
 ## Basic Controls
 
-Main menu controls assume player 1 controls for movement, selections, and actions unless otherwise
-stated. At any time an ESC key input will quit the game.
+All menu navigation and game controls are primarily set to Player 1 unless otherwise specified. The `ESC` key can be used anytime to exit the game.
 
-Player 1 controls:
+### Player 1 Controls
 
-    Up arrow:       Move Forward
-    Left arrow:     Rotate Left
-    Right Arrow:    Rotate Right
-    Ctrl:           Fire
+| Key         | Action        |
+|-------------|---------------|
+| Up Arrow    | Move Forward  |
+| Left Arrow  | Rotate Left   |
+| Right Arrow | Rotate Right  |
+| Ctrl        | Fire          |
 
-Player 2 controls:
+### Player 2 Controls
 
-    S/R Key:            Move Forward
-    D Key:              Rotate Left
-    G Key:              Rotate Right
-    A Key:              Fire
+| Key      | Action        |
+|----------|---------------|
+| S or R   | Move Forward  |
+| D        | Rotate Left   |
+| G        | Rotate Right  |
+| A        | Fire          |
 
-## Game Config
+## Game Configuration
 
-From the main Asteroids folder, navigating to /Resources/json will yield the `Controls.json` and the
-`Game_Config.json` files. `Controls.json` houses the key mappings that Asteroids has defined (but
-not necessarily ones that are in use, those are above and up-to-date as of writing).
-`Game_Config.json` houses a few editable parameters for Asteroids:
+The configuration files for **Asteroids** can be found in the `/Resources/json` folder, where `Controls.json` and `Game_Config.json` allow for game customization:
 
+### Key Configuration Files
+
+1. **`Controls.json`**: Contains the key mappings used in **Asteroids**. This file can be edited to customize player controls.
+
+2. **`Game_Config.json`**: Houses various settings that affect gameplay, display, and visual scaling.
+
+   ```bash
     "fullscreen": true,
     "gameScale": 0.6,
     "no_boarder": false,
     "screen_height": 540,
     "screen_width": 960
+    ```
 
-`fullscreen` will, as the name suggests, determine whether or not on launch the game sets itself to
-fullscreen.
+3. The breakdown of the parameters in `Game_Config.json` is as follows:
 
-`gameScale` refers to some visual elements of Asteroids, adjusts the position and movement of
-everything in the game, and should not be edited without proper editing of `screen_height` and
-`screen_width` as well to ensure visual communication and fidelity. Example of base game scale and
-calculations for 80% and 60% scaled versions:
+   - **`fullscreen`**: Determines whether the game launches in full-screen mode (`true` for fullscreen, `false` for windowed).
+   - **`gameScale`**: Adjusts the overall scaling of visual elements. If modified, ensure `screen_height` and `screen_width` are adjusted proportionally for visual fidelity.
+   - **`no_boarder`**: When `fullscreen` is set to `false`, this parameter controls whether the standard window border (with minimize, maximize, and close buttons) is shown (`false`) or hidden (`true`).
+   - **`screen_height` and `screen_width`**: Set the dimensions of the game window.
 
-    Full res:                   1600 x 900,   game scale:     1
-    80% res:                    1280 x 720,   game scale:     0.8  →   1600*0.8 || 900*0.7
-    60% res: (current setting)  960 x 540,    game scale:     0.6  →   1600*0.6 || 900*0.6
+### Example Screen Resolutions and Game Scales
 
-`no_boarder` will determine, if `fullscreen` is false, whether or not the standard Windows / OS
-program border (that houses minimize, maximize, and close buttons) will be visible on the
-application. This removes movement and minimization functionality of the game window, but the
-application can still be quit via the escape key if necessary.
+Below are examples of base game scale configurations. If you change `gameScale`, ensure `screen_height` and `screen_width` align to maintain consistent gameplay visuals:
+
+- **Full Resolution**: `1600 x 900` (game scale `1`)
+- **80% Resolution**: `1280 x 720` (game scale `0.8`)
+- **60% Resolution**: `960 x 540` (game scale `0.6`) - current setting
+
+For example:
+
+```plaintext
+Full res:                   1600 x 900,   game scale:     1
+80% res:                    1280 x 720,   game scale:     0.8  →   1600*0.8 || 900*0.8
+60% res: (current setting)  960 x 540,    game scale:     0.6  →   1600*0.6 || 900*0.6
+```
