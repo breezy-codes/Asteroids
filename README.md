@@ -12,6 +12,8 @@ In **Asteroids**, you control a spaceship, dodging and shooting down waves of as
 
 ## Running the Game
 
+Ensure you have the latest version of the **SplashKit** library installed on your system. If you haven't installed **SplashKit**, follow the instructions in the [**SplashKit Installation Guide**](https://splashkit.io/installation/).
+
 To launch the game, follow these steps:
 
 1. **Navigate to the Game Directory**:
