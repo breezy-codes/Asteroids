@@ -2,6 +2,12 @@
     <img width="150px" src="https://github.com/thoth-tech/.github/blob/main/images/splashkit.png"/>
 </p>
 
+![GitHub contributors](https://img.shields.io/github/contributors/thoth-tech/Asteroids?label=Contributors&color=F5A623)
+![GitHub issues](https://img.shields.io/github/issues/thoth-tech/Asteroids?label=Issues&color=F5A623)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/thoth-tech/Asteroids?label=Pull%20Requests&color=F5A623)
+![Forks](https://img.shields.io/github/forks/thoth-tech/Asteroids?label=Forks&color=F5A623)
+![Stars](https://img.shields.io/github/stars/thoth-tech/Asteroids?label=Stars&color=F5A623)
+
 # Asteroids 1.0
 
 **Asteroids** is a top-down single player or co-op shooter that has you, the player, flying around and surviving an onslaught of rocks, and if you survive long enough, even bosses! Aim for a high score, don't lose your hearts before your friend, and manoeuvre around dangers and rack up that score!
