@@ -2,11 +2,11 @@
     <img width="150px" src="https://github.com/thoth-tech/.github/blob/main/images/splashkit.png"/>
 </p>
 
-![GitHub contributors](https://img.shields.io/github/contributors/thoth-tech/Asteroids?label=Contributors&color=F5A623)
-![GitHub issues](https://img.shields.io/github/issues/thoth-tech/Asteroids?label=Issues&color=F5A623)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/thoth-tech/Asteroids?label=Pull%20Requests&color=F5A623)
-![Forks](https://img.shields.io/github/forks/thoth-tech/Asteroids?label=Forks&color=F5A623)
-![Stars](https://img.shields.io/github/stars/thoth-tech/Asteroids?label=Stars&color=F5A623)
+[![GitHub contributors](https://img.shields.io/github/contributors/thoth-tech/Asteroids?label=Contributors&color=F5A623)](https://github.com/thoth-tech/Asteroids/graphs/contributors)
+[![GitHub issues](https://img.shields.io/github/issues/thoth-tech/Asteroids?label=Issues&color=F5A623)](https://github.com/thoth-tech/Asteroids/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/thoth-tech/Asteroids?label=Pull%20Requests&color=F5A623)](https://github.com/thoth-tech/Asteroids/pulls)
+[![Forks](https://img.shields.io/github/forks/thoth-tech/Asteroids?label=Forks&color=F5A623)](https://github.com/thoth-tech/Asteroids/network/members)
+[![Stars](https://img.shields.io/github/stars/thoth-tech/Asteroids?label=Stars&color=F5A623)](https://github.com/thoth-tech/Asteroids/stargazers)
 
 # Asteroids 1.0
 
